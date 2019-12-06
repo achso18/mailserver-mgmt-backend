@@ -1,0 +1,28 @@
+{
+  "name": "mailserver-mgmt-backend",
+  "version": "1.0.0",
+  "description": "mailserver management app backend",
+  "main": "index.js",
+  "private" : true,
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest --forceExit"
+  },
+  "author": "Achim Geisler",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+  "type": "git",
+  "url": "git://github.com/achso18/mailserver-mgmt-backend.git"
+  },
+  "dependencies": {
+    "knex": "^0.20.3",
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "jest": "^24.9.0"
+  }
+}
