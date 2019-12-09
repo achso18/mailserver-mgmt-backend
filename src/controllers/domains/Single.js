@@ -9,7 +9,7 @@ module.exports = async ctx => {
 
   } catch (e) {
     const message = 'Internal server error';
-    ctx.status = e.statuscode || 500;
+    ctx.status = e.statusCode || 500;
     ctx.body = {
       error: e.data || { message}
     };

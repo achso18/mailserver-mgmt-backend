@@ -10,7 +10,7 @@ class Model extends objection.Model {
   }
 
   $beforeUpdate() {
-    this.updated_at = new Date();
+    //this.updated_at = new Date();
   }
 
   $formatDatabaseJson(json) {

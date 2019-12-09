@@ -40,19 +40,47 @@ describe('Routes: domains', () => {
 
   describe('POST /domain', () => {
     test('Should return single post after insert', async () => {
-      const newDom = { domain: newdomain.com };
+      const newDom = { domain: 'newdomain.com' };
       const res = await chai.request(server).post('/domain').send(newDom);
 
       expect(res.status).toEqual(200);
       expect(res.body.data).toBeDefined();
-      expect(res.body.data).toEqual(newDom);
+      expect(res.body.data.domain).toEqual(newDom.domain);
     });
 
     test('Should return error status message, when body invalid', async () => {
       const res = await chai.request(server).post('/domain').send({ domain: '' });
 
+      expect(res.status).toEqual(400);
+      expect(res.body.error).toBeDefined();
+    });
+  });
+
+  describe('PATCH /domain/:id', () => {
+    test('Should return ForeignKeyViolationError', async () => {
+      const patched = { domain: 'patched.com' };
+      const res = await chai.request(server).patch('/domain/1').send(patched);
+
+      expect(res.status).toEqual(500);
+      expect(res.body.error).toBeDefined();
+    });
+  });
+
+  describe('DELETE /domain/:id', () => {
+    test('Should return status 200', async () => {
+      const newDom = { domain: 'newdomain.com' };
+      const resNew = await chai.request(server).post('/domain').send(newDom);
+
+      const res =  await chai.request(server).delete(`/domain/${resNew.body.data.id}`);
       expect(res.status).toEqual(200);
-      expect(res.body.data).toBeDefined();
+    });
+  });
+
+  describe('DELETE /domain/:id', () => {
+    test('Should return ForeignKeyViolationError', async () => {
+      const res =  await chai.request(server).delete('/domain/1');
+
+      expect(res.status).toEqual(500);
     });
   });
 
