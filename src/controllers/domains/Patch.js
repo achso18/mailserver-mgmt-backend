@@ -1,6 +1,5 @@
 const Domains = require('../../models/Domains');
 
-// Throws an error, but added for completeness!
 module.exports = async ctx => {
   try {
     const { id } = ctx.params;

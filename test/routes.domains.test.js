@@ -64,6 +64,16 @@ describe('Routes: domains', () => {
       expect(res.status).toEqual(500);
       expect(res.body.error).toBeDefined();
     });
+
+    test('Should rename domain name', async () => {
+      const newDom = { domain: 'newdomain.com' };
+      const resNew = await chai.request(server).post('/domain').send(newDom);
+
+      const res =  await chai.request(server).patch(`/domain/${resNew.body.data.id}`).send({ domain: 'patched.com' });
+
+      expect(res.status).toEqual(200);
+      expect(res.body.data.domain).toEqual('patched.com');
+    })
   });
 
   describe('DELETE /domain/:id', () => {
@@ -74,9 +84,7 @@ describe('Routes: domains', () => {
       const res =  await chai.request(server).delete(`/domain/${resNew.body.data.id}`);
       expect(res.status).toEqual(200);
     });
-  });
 
-  describe('DELETE /domain/:id', () => {
     test('Should return ForeignKeyViolationError', async () => {
       const res =  await chai.request(server).delete('/domain/1');
 
