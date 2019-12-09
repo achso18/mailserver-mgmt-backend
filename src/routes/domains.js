@@ -1,9 +1,5 @@
 const Router = require('koa-router');
+const { List } = require('../controllers/domains');
 
 module.exports = new Router()
-  .get('/domains', async ctx => {
-    ctx.status = 200;
-    ctx.body = {
-      data: 'ok'
-    };
-  });
+  .get('/domains', List);
