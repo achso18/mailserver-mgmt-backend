@@ -31,7 +31,7 @@ describe('Routes: domains', () => {
   describe('GET /domain/:id', () => {
     test('Should return a single domain', async () => {
       const domain = { id: 1, domain: 'example.com'};
-      const res = await chai.request(server).get('domain/1');
+      const res = await chai.request(server).get('/domain/1');
       expect(res.status).toEqual(200);
       expect(res.body.data).toBeDefined();
       expect(res.body.data).toEqual(domain);

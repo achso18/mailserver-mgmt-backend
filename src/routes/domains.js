@@ -1,5 +1,6 @@
 const Router = require('koa-router');
-const { List } = require('../controllers/domains');
+const { List, Single } = require('../controllers/domains');
 
 module.exports = new Router()
-  .get('/domains', List);
+  .get('/domains', List)
+  .get('/domain/:id', Single);

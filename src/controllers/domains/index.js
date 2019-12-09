@@ -1,3 +1,4 @@
 const List = require('./List');
+const Single = require('./Single');
 
-module.exports = { List };
+module.exports = { List, Single };
