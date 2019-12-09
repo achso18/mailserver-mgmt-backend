@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "mailserver management app backend",
   "main": "index.js",
-  "private" : true,
+  "private": true,
   "scripts": {
     "start": "node src/index.js",
     "test": "jest --forceExit"
@@ -11,14 +11,17 @@
   "author": "Achim Geisler",
   "license": "GPL-3.0-or-later",
   "repository": {
-  "type": "git",
-  "url": "git://github.com/achso18/mailserver-mgmt-backend.git"
+    "type": "git",
+    "url": "git://github.com/achso18/mailserver-mgmt-backend.git"
   },
   "dependencies": {
     "knex": "^0.20.3",
     "koa": "^2.11.0",
     "koa-body": "^4.1.1",
-    "mysql": "^2.17.1"
+    "koa-router": "^7.4.0",
+    "lodash": "^4.17.15",
+    "mysql": "^2.17.1",
+    "objection": "^2.0.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",
