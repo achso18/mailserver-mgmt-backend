@@ -20,6 +20,6 @@ module.exports = async ctx => {
     ctx.body = {
       error: e.data || { message }
     };
-    //console.log(e);
+
   }
 };
