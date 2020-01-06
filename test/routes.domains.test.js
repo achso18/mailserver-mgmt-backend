@@ -39,7 +39,7 @@ describe('Routes: domains', () => {
   });
 
   describe('POST /domain', () => {
-    test('Should return single post after insert', async () => {
+    test('Should return single domain after insert', async () => {
       const newDom = { domain: 'newdomain.com' };
       const res = await chai.request(server).post('/domain').send(newDom);
 
