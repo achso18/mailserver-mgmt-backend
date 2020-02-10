@@ -77,4 +77,20 @@ describe('Routes: accounts', () => {
     });
   });
 
+  describe('DELETE /account/:id', () => {
+    test('Should return status 200', async () => {
+      const newAccount = { username: 'newUser', domain: 'example.com', password: 'newpass' };
+      const resNew = await chai.request(server).post('/account').send(newAccount);
+
+      const res =  await chai.request(server).delete(`/account/${resNew.body.data.id}`);
+      expect(res.status).toEqual(200);
+    });
+
+    test('Should delete existing account', async () => {
+      const res =  await chai.request(server).delete('/account/1');
+
+      expect(res.status).toEqual(200);
+    });
+  });
+
 });
