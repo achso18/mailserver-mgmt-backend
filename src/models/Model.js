@@ -13,13 +13,13 @@ class Model extends objection.Model {
     //this.updated_at = new Date();
   }
 
-  $formatDatabaseJson(json) {
-    return _.mapKeys(json, (v,k) => _.snakeCase(k));
-  }
-
-  $parseDatabaseJson(json) {
-    return _.mapKeys(json, (v,k) => _.camelCase(k));
-  }
+  // $formatDatabaseJson(json) {
+  //   return _.mapKeys(json, (v,k) => _.snakeCase(k));
+  // }
+  //
+  // $parseDatabaseJson(json) {
+  //   return _.mapKeys(json, (v,k) => _.camelCase(k));
+  // }
 }
 
 module.exports = Model;
