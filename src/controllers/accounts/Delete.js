@@ -6,7 +6,7 @@ module.exports = async ctx => {
 
     const affectedRows = await Accounts.query().delete().where({ id });
 
-    if(!affectedRows) ctx.throw(409, { data: { message: 'Error deleting domain' } });
+    if(!affectedRows) ctx.throw(409, { data: { message: 'Error deleting account' } });
 
     ctx.status = 200;
     ctx.body = {
@@ -19,6 +19,6 @@ module.exports = async ctx => {
     ctx.body = {
       error: e.data || { message }
     };
-
   }
+  
 };

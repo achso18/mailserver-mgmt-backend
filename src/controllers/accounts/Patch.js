@@ -5,7 +5,7 @@ module.exports = async ctx => {
     const { id } = ctx.params;
 
     const affectedRows = await Accounts.query().patch(ctx.request.body).where({ id });
-    if (!affectedRows) ctx.throw(409, { data: { message: 'Error updating domain' } });
+    if (!affectedRows) ctx.throw(409, { data: { message: 'Error updating account' } });
 
     ctx.status = 200;
     ctx.body = {
