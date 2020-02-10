@@ -51,9 +51,7 @@ describe('Routes: accounts', () => {
       expect(res.body.data).toBeDefined();
       expect(res.body.data.username).toEqual(newAccount.username);
     });
-  });
 
-  describe('POST /account', () => {
     test('Should return error status message when body invalid', async () => {
       const invalidAccount = { username: '',  domain: '', password: '' };
 
@@ -62,5 +60,21 @@ describe('Routes: accounts', () => {
       expect(res.body.error).toBeDefined();
     });
   });
-  
+
+  describe('PATCH /account/:id', () => {
+    test('Should return ForeignKeyViolationError', async () => {
+      const patched = { domain: 'patched.com' };
+      const res = await chai.request(server).patch('/account/1').send(patched);
+      expect(res.status).toEqual(500);
+      expect(res.body.error).toBeDefined();
+    });
+
+    test('Should rename username', async () => {
+      const patched = { username: 'muller'};
+      const res = await chai.request(server).patch('/account/1').send(patched);
+      expect(res.status).toEqual(200);
+      expect(res.body.data.username).toEqual('muller');
+    });
+  });
+
 });
