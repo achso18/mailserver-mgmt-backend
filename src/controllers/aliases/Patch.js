@@ -3,7 +3,7 @@ const Aliases = require('../../models/Aliases');
 module.exports = async ctx => {
   try {
     const { id } = ctx.params;
-    console.log(ctx.request.body);
+
     const affectedRows = await Aliases.query().patch(ctx.request.body).where({ id });
     if (!affectedRows) ctx.throw(409, { data: { message: 'Error updating alias' } });
 
