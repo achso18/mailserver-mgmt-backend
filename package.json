@@ -15,7 +15,7 @@
     "url": "git://github.com/achso18/mailserver-mgmt-backend.git"
   },
   "dependencies": {
-    "knex": "^0.20.3",
+    "knex": "^2.4.0",
     "koa": "^2.11.0",
     "koa-body": "^4.1.1",
     "koa-router": "^7.4.0",
